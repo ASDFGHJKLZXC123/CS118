@@ -38,6 +38,9 @@ public class TargetResponse : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // 1) Spawn particles
+        if (collision.gameObject.CompareTag("Respawn")){
+            return; // Ignore ground collision
+        }
         if (hitParticlePrefab != null)
         {
             ContactPoint contact = collision.GetContact(0);
